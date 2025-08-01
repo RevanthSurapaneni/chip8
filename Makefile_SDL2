@@ -1,0 +1,49 @@
+# Build script for CHIP-8 Emulator with SDL2
+# This script compiles the SDL2 version of the CHIP-8 emulator
+
+# Compiler settings
+CXX := g++
+CXXFLAGS := -std=c++11 -Wall -O2
+INCLUDES := -I"SDL2-2.30.9/include"
+LIBS := -L"SDL2-2.30.9/lib/x64" -lSDL2main -lSDL2
+TARGET := chip8_sdl2.exe
+SOURCES := Chip8.cpp main.cpp
+
+# Default target
+all: $(TARGET)
+
+# Build the SDL2 version
+$(TARGET): $(SOURCES)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(TARGET) $(SOURCES) $(LIBS)
+	@echo "SDL2 version built successfully!"
+	@echo "Run with: $(TARGET) <rom_file>"
+
+# Console version (already exists)
+console: chip8_console.exe
+
+chip8_console.exe: Chip8.cpp main_console.cpp
+	$(CXX) $(CXXFLAGS) -o chip8_console.exe Chip8.cpp main_console.cpp
+	@echo "Console version built successfully!"
+
+# Clean build files
+clean:
+	@if exist $(TARGET) del $(TARGET)
+	@if exist chip8_console.exe del chip8_console.exe
+	@echo "Cleaned build files"
+
+# Test with Tetris ROM
+test: $(TARGET)
+	@echo "Testing with Tetris ROM..."
+	$(TARGET) "Tetris [Fran Dachille, 1991].ch8"
+
+# Help
+help:
+	@echo "CHIP-8 Emulator Build System"
+	@echo "Usage:"
+	@echo "  make          - Build SDL2 version"
+	@echo "  make console  - Build console version"
+	@echo "  make test     - Build and run with Tetris ROM"
+	@echo "  make clean    - Clean build files"
+	@echo "  make help     - Show this help"
+
+.PHONY: all console clean test help
