@@ -1,3 +1,7 @@
+<img width="1282" height="673" alt="image" src="https://github.com/user-attachments/assets/d66c2a53-fdbf-401e-abb3-06b37c79f641" />
+
+
+
 # CHIP-8 Emulator
 
 A fully functional CHIP-8 emulator written in C++ with SDL2.
@@ -185,11 +189,3 @@ The emulator scales the 64x32 display to 1024x512 pixels. If you have display is
 
 This project is open source. Feel free to modify and distribute according to your needs.
 
-## Contributing
-
-Contributions are welcome! Areas for improvement:
-- Better audio implementation
-- Configuration file support
-- Debugger features
-- More sophisticated display scaling options
-- Game compatibility testing
