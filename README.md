@@ -1,6 +1,6 @@
 <img width="1282" height="673" alt="image" src="https://github.com/user-attachments/assets/d66c2a53-fdbf-401e-abb3-06b37c79f641" />
 
-
+Classic game "Breakout" on CHIP-8
 
 # CHIP-8 Emulator
 
